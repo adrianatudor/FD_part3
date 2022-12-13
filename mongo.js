@@ -1,10 +1,12 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 const mongoose = require('mongoose')
 
 
-if ((process.argv.length < 3) || (process.argv.length == 4) || (process.argv.length > 5))  {
-    console.log('Please provide the password and the optionals parameters: node mongo.js <password> [person_name] [person_number]')
-    process.exit(1)
- }
+if ((process.argv.length < 3) || (process.argv.length === 4) || (process.argv.length > 5))  {
+  console.log('Please provide the password and the optionals parameters: node mongo.js <password> [person_name] [person_number]')
+  process.exit(1)
+}
 
 const password = process.argv[2]
 
@@ -42,11 +44,11 @@ mongoose
 
       Person
         .find({})
-        .then(persons=> {
+        .then(persons => {
           persons.forEach(person =>
-              console.log(`${person.name} ${person.number}`)
+            console.log(`${person.name} ${person.number}`)
           )
-          
+
           mongoose.connection.close()
         })
     }
